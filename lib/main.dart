@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_get_project/screens/DocumentScreen.dart';
 import 'package:flutter_get_project/screens/Home.dart';
-import 'package:flutter_get_project/screens/TodoScreen.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
-  runApp(GetMaterialApp(home: MyApp(),));
+void main() async {
+  await GetStorage.init();
+  runApp(GetMaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,8 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: DocumentScreen(),
     );
   }
 }
-
